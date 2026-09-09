@@ -1,0 +1,20 @@
+
+{
+	"clientVersion": "15.11.49",
+	"launcherVersion": "2.0",
+	"replaceFolders": true,
+	"replaceFolderName": [
+		{
+			"name": "assets"
+		},
+		{
+			"name": "storeimages"
+		},
+		{
+			"name": "bin"
+		}
+	],
+	"clientFolder": "Tibia",
+	"newClientUrl" : "https://15.eloria.pl/client-update/update.zip",
+	"clientExecutable": "client.exe"
+}
