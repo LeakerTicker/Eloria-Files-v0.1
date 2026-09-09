@@ -1,0 +1,146 @@
+local mType = Game.createMonsterType("Maxxenius")
+local monster = {}
+
+monster.description = "Maxxenius"
+monster.experience = 150000
+monster.outfit = {
+	lookType = 1142,
+	lookHead = 0,
+	lookBody = 0,
+	lookLegs = 0,
+	lookFeet = 0,
+	lookAddons = 0,
+	lookMount = 0,
+}
+
+
+
+monster.health = 100000
+monster.maxHealth = 100000
+monster.race = "blood"
+monster.corpse = 30151
+monster.speed = 125
+monster.manaCost = 0
+
+monster.changeTarget = {
+	interval = 4000,
+	chance = 10,
+}
+
+monster.bosstiary = {
+	bossRaceId = 1697,
+	bossRace = RARITY_NEMESIS,
+	storage = Storage.Quest.U12_00.TheDreamCourts.ArenaTimer,
+}
+
+monster.strategiesTarget = {
+	nearest = 70,
+	health = 10,
+	damage = 10,
+	random = 10,
+}
+
+monster.flags = {
+	summonable = false,
+	attackable = true,
+	hostile = true,
+	convinceable = false,
+	pushable = false,
+	rewardBoss = true,
+	illusionable = false,
+	canPushItems = true,
+	canPushCreatures = true,
+	staticAttackChance = 90,
+	targetDistance = 1,
+	runHealth = 0,
+	healthHidden = false,
+	isBlockable = false,
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
+}
+
+monster.light = {
+	level = 0,
+	color = 0,
+}
+
+monster.voices = {
+	interval = 5000,
+	chance = 10,
+}
+
+monster.loot = {
+	{ id = 23529, chance = 140290 }, -- ring of blue plasma
+	{ id = 23529, chance = 350070 }, -- ring of blue plasma
+	{ id = 23531, chance = 100710 }, -- ring of green plasma
+	{ id = 23533, chance = 714000 }, -- ring of red plasma
+	{ id = 23542, chance = 142090 }, -- collar of blue plasma
+	{ id = 23543, chance = 107010 }, -- collar of green plasma
+	{ id = 61728, chance = 2470 }, -- ring of orange plasma
+	{ id = 61726, chance = 2470 }, -- collar of orange plasma
+	{ name = "greater sage gem", chance = 500 },
+	{ name = "greater spiritualist gem", chance = 500 },
+	{ name = "greater mystic gem", chance = 500 },
+	{ name = "greater marksman gem", chance = 500 },
+	{ name = "greater guardian gem", chance = 500 },
+	{ id = 23544, chance = 178060 }, -- collar of red plasma
+	{ id = 3039, chance = 285070 }, -- red gem
+	{ name = "abyss hammer", chance = 3570 },
+	{ name = "blue gem", chance = 10710 },
+	{ name = "chaos mace", chance = 71040 },
+	{ name = "crystal coin", chance = 149290, maxCount = 9 },
+	{ name = "energized limb", chance = 9570 },
+	{ id = 46321, chance = 1500}, -- Core Backpack
+	{ name = "giant ruby", chance = 17860 },
+	{ name = "gold ingot", chance = 14290 },
+	{ name = "green gem", chance = 285700 },
+	{ name = "huge chunk of crude iron", chance = 42860 },
+	{ name = "magic sulphur", chance = 35700 },
+	{ name = "maxxenius head", chance = 7140 },
+	{ name = "mysterious remains", chance = 85710 },
+	{ name = "ornate locket", chance = 14290 },
+	{ name = "pomegranate", chance = 21430 },
+	{ name = "ring of the sky", chance = 71400 },
+	{ name = "skull staff", chance = 21430 },
+	{ name = "violet gem", chance = 35070 },
+	{ name = "yellow gem", chance = 50000, maxCount = 2 },
+	{ name = "gold token", chance = 7080 },
+    { name = "silver token", chance = 7140 },
+    { id = 49921, chance = 10000 },  -- Boss Token
+	{ id = 43946, chance = 30000 },  -- Abridged Promotion Scroll
+}
+
+monster.attacks = {
+	{ name = "melee", interval = 2000, chance = 100, minDamage = -500, maxDamage = -1000 },
+	{ name = "energy beam", interval = 2000, chance = 10, minDamage = -500, maxDamage = -1200, shootEffect = CONST_ANI_ENERGY, effect = CONST_ME_ENERGYAREA, target = false },
+	{ name = "energy wave", interval = 2000, chance = 10, minDamage = -500, maxDamage = -1200, shootEffect = CONST_ANI_ENERGY, effect = CONST_ME_ENERGYAREA, target = false },
+}
+
+monster.defenses = {
+	defense = 60,
+	armor = 60,
+}
+
+monster.elements = {
+	{ type = COMBAT_PHYSICALDAMAGE, percent = 0 },
+	{ type = COMBAT_ENERGYDAMAGE, percent = 0 },
+	{ type = COMBAT_EARTHDAMAGE, percent = 0 },
+	{ type = COMBAT_FIREDAMAGE, percent = 0 },
+	{ type = COMBAT_LIFEDRAIN, percent = 0 },
+	{ type = COMBAT_MANADRAIN, percent = 0 },
+	{ type = COMBAT_DROWNDAMAGE, percent = 0 },
+	{ type = COMBAT_ICEDAMAGE, percent = 0 },
+	{ type = COMBAT_HOLYDAMAGE, percent = 0 },
+	{ type = COMBAT_DEATHDAMAGE, percent = 00 },
+}
+
+
+monster.immunities = {
+	{ type = "paralyze", condition = true },
+	{ type = "outfit", condition = false },
+	{ type = "invisible", condition = true },
+	{ type = "bleed", condition = false },
+}
+
+mType:register(monster)

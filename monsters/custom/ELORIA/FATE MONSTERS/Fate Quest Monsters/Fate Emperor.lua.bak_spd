@@ -1,0 +1,115 @@
+local mType = Game.createMonsterType("Fate Emperor")
+local monster = {}
+
+monster.description = "Fate Emperor"
+monster.experience = 50000000
+monster.outfit = {
+	lookType = 12,
+	lookHead = 38,
+	lookBody = 114,
+	lookLegs = 0,
+	lookFeet = 94,
+	lookAddons = 0,
+	lookMount = 0,
+}
+
+
+
+monster.health = 12500000
+monster.maxHealth = 12500000
+monster.race = "fire"
+monster.corpse = 6068
+monster.speed = 666
+monster.manaCost = 0
+
+monster.changeTarget = {
+	interval = 5000,
+	chance = 40,
+}
+
+monster.strategiesTarget = {
+	nearest = 100,
+	health = 0,
+	damage = 0,
+	random = 0,
+}
+
+monster.flags = {
+	summonable = false,
+	attackable = true,
+	hostile = true,
+	convinceable = false,
+	pushable = false,
+	rewardBoss = true,
+	illusionable = false,
+	canPushItems = true,
+	canPushCreatures = true,
+	staticAttackChance = 90,
+	targetDistance = 1,
+	runHealth = 0,
+	healthHidden = false,
+	isBlockable = false,
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
+}
+
+monster.light = {
+	level = 0,
+	color = 0,
+}
+
+monster.voices = {
+	interval = 5000,
+	chance = 10,
+	{ text = "YOUR SOULS BELONG TO MALACHAR!", yell = true },
+	{ text = "DESTRUCTION!", yell = true },
+	{ text = "CHAOS!", yell = true },
+	{ text = "DEATH TO ALL!", yell = true },
+}
+
+monster.loot = {
+
+}
+
+monster.attacks = {
+	{ name = "melee", interval = 1000, chance = 100, minDamage = -13000, maxDamage = -29013 },
+	{ name = "combat", interval = 1000, chance = 35, type = COMBAT_DEATHDAMAGE, minDamage = -9800, maxDamage = -15900, radius = 9, effect = CONST_ME_MORTAREA, target = false },
+	{ name = "speed", interval = 1000, chance = 30, speedChange = -3850, radius = 6, effect = CONST_ME_POISONAREA, target = false, duration = 60000 },
+	{ name = "strength", interval = 1000, chance = 10, minDamage = -8600, maxDamage = -19450, radius = 5, effect = CONST_ME_HITAREA, target = false },
+	{ name = "combat", interval = 3000, chance = 30, type = COMBAT_FIREDAMAGE, minDamage = -6300, maxDamage = -22800, range = 7, radius = 7, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREAREA, target = true },
+	{ name = "combat", interval = 3000, chance = 60, type = COMBAT_MANADRAIN, minDamage = -46000, maxDamage = -75700, radius = 3, effect = CONST_ME_ENERGYAREA, target = false },
+	{ name = "combat", interval = 2000, chance = 35, type = COMBAT_ENERGYDAMAGE, minDamage = -9400, maxDamage = -15800, length = 8, spread = 0, effect = CONST_ME_MAGIC_RED, target = false },
+	{ name = "condition", type = CONDITION_POISON, interval = 5000, chance = 15, minDamage = -35000, maxDamage = -40000, effect = CONST_ME_HITBYPOISON, target = false },
+	{ name = "combat", interval = 2000, chance = 60, type = COMBAT_LIFEDRAIN, minDamage = -6600, maxDamage = -11200, radius = 14, effect = CONST_ME_MAGIC_GREEN, target = false },
+}
+
+monster.defenses = {
+	defense = 145,
+	armor = 188,
+	--	mitigation = ???,
+	{ name = "combat", interval = 1000, chance = 15, type = COMBAT_HEALING, minDamage = 1000, maxDamage = 3000, effect = CONST_ME_MAGIC_BLUE, target = false },
+	{ name = "speed", interval = 2000, chance = 8, speedChange = 480, effect = CONST_ME_MAGIC_RED, target = false, duration = 6000 },
+}
+
+monster.elements = {
+	{ type = COMBAT_PHYSICALDAMAGE, percent = 0 },
+	{ type = COMBAT_ENERGYDAMAGE, percent = 30 },
+	{ type = COMBAT_EARTHDAMAGE, percent = 30 },
+	{ type = COMBAT_FIREDAMAGE, percent = 30 },
+	{ type = COMBAT_LIFEDRAIN, percent = 30 },
+	{ type = COMBAT_MANADRAIN, percent = 0 },
+	{ type = COMBAT_DROWNDAMAGE, percent = 0 },
+	{ type = COMBAT_ICEDAMAGE, percent = 30 },
+	{ type = COMBAT_HOLYDAMAGE, percent = 30 },
+	{ type = COMBAT_DEATHDAMAGE, percent = 30 },
+}
+
+monster.immunities = {
+	{ type = "paralyze", condition = true },
+	{ type = "outfit", condition = false },
+	{ type = "invisible", condition = true },
+	{ type = "bleed", condition = false },
+}
+
+mType:register(monster)
